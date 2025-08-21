@@ -1,15 +1,27 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --cust-grey-950: #08070b;
+  --cust-grey-900: #14131b;
+  --cust-grey-850: #18171f;
+  --cust-grey-800: #24232c;
+  --cust-grey-700: #54535b;
+  --cust-grey-600: #817d92;
+  --cust-grey-200: #e6e5ea;
+  --cust-green-200: #a4ffaf;
+  --cust-yellow-300: #f8cd65;
+  --cust-orange-400: #fb7c58;
+  --cust-red-500: #f64a4a;
+  --cust-grad-1: #14131b;
+  --cust-grad-2: #08070b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-jet);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +35,29 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@utility preset-1 {
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+@utility preset-2 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+@utility preset-3 {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+@utility preset-4 {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  font-weight: 700;
 }
