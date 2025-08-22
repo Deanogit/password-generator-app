@@ -1,33 +1,29 @@
 import Image from 'next/image';
-import { useState } from 'react';
 
-export default function CheckBox() {
-  const [click, setClick] = useState(false);
+type CheckBoxProps = {
+  label: string;
+  checked: boolean;
+  onChange: () => void;
+};
 
-  function handleClick(e) {
-    if (!click) {
-      setClick(true);
-      e.currentTarget.classList.toggle('bg-[var(--cust-green-200)]');
-      e.currentTarget.classList.remove('border-[var(--foreground)]');
-      e.currentTarget.classList.add('border-[var(--cust-green-200)]');
-    } else {
-      setClick(false);
-      e.currentTarget.classList.toggle('bg-[var(--cust-green-200)]');
-      e.currentTarget.classList.remove('border-[var(--cust-green-200)]');
-      e.currentTarget.classList.add('border-[var(--foreground)]');
-    }
-  }
-
+export default function CheckBox({ label, checked, onChange }: CheckBoxProps) {
   return (
-    <>
-      {' '}
+    <div className="flex items-center">
       <button
         type="button"
-        className="w-5 h-5 border-2 border-[var(--foreground)]] mr-4 cursor-pointer hover:border-[var(--cust-green-200) grid place-content-center"
-        onClick={handleClick}
+        className={`w-5 h-5 border-2 mr-4 cursor-pointer grid place-content-center ${
+          checked
+            ? 'bg-[var(--cust-green-200)] border-[var(--cust-green-200)]'
+            : 'border-[var(--foreground)] hover:border-[var(--cust-green-200)]'
+        }`}
+        onClick={onChange}
       >
-        <Image src="/icon-check.svg" alt="" width={14} height={12} />
+        {' '}
+        {checked && (
+          <Image src="/icon-check.svg" alt="" width={14} height={12} />
+        )}
       </button>
-    </>
+      <h3 className="preset-3">Include {label}</h3>
+    </div>
   );
 }
